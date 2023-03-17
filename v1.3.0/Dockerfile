@@ -28,9 +28,10 @@ RUN pip install numpy && pip install .
 RUN mkdir -p /usr/tmp
 WORKDIR /usr/tmp
 
-RUN wget https://github.com/KumaTea/tensorflow-aarch64/releases/download/v1.15/tensorflow-1.15.5-cp36-cp36m-manylinux_2_24_aarch64.whl
-RUN pip install tensorflow-1.15.5-cp36-cp36m-manylinux_2_24_aarch64.whl
-RUN rm tensorflow-1.15.5-cp36-cp36m-manylinux_2_24_aarch64.whl
+COPY tensorflow.sh .
+
+RUN chmod +x tensorflow.sh
+RUN ./tensorflow.sh
 
 WORKDIR /usr/src/code
 

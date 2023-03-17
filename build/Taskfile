@@ -11,9 +11,8 @@ task:login() {
 }
 
 task:build:v1.3.0() {
-    cd ../arm64-v1.3.0
-    docker build -t tdreier/gqcnn:v1.3.0 -t tdreier/gqcnn:latest .
-    docker push tdreier/gqcnn:v1.3.0
-    docker push tdreier/gqcnn:latest
+    cd ../v1.3.0
+    docker buildx build . --push --platform linux/arm64/v8,linux/amd64 --tag tdreier/gqcnn:v1.3.0
+    docker buildx build . --push --platform linux/arm64/v8,linux/amd64 --tag tdreier/gqcnn:latest
     cd ..
 }
