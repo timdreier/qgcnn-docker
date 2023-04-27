@@ -3,7 +3,7 @@
 ![b5 ready](https://raw.githubusercontent.com/team23/b5/master/assets/badges/b5_ready.png)
 
 This is a docker image for [BerkeleyAutomation grasp planning](https://github.com/BerkeleyAutomation/gqcnn) specifically build for the Apple M1 Processor.
-I haven't tested it, but it should work on any arm64 platform.
+I haven't tested it, but it should work on any arm64 (and amd64) platform.
 
 I created this, because the one provided didn't work on arm64 platform, since tensorflow1 hasn't been build for the arm64 platform.
 
@@ -13,12 +13,16 @@ More information about what the gqcnn package does can be found in [their repo](
 You can use this image as a starting point for grasp planning.
 
 ## Example
-To enable visual output you need have [XQuartz](https://www.xquartz.org) running.
+To enable visual output on MacOS you need have [XQuartz](https://www.xquartz.org) running.
 
-If not already done, allow access to XQuartz from localhost:
+If not already done, allow access to XQuartz / XHost from localhost:
 
 ```
+# MacOS
 xhost + 127.0.0.1
+
+# Linux
+xhost +local:docker
 ```
 
 An example docker-compose.yml could look like this:
